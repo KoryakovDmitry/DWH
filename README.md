@@ -22,6 +22,7 @@
    - https://stackoverflow.com/questions/37694987/connecting-to-postgresql-in-a-docker-container-from-outside
 8. Напишите код на Spark, который будет заполнять сначала таблицы измерений и фактов в DWH.
    - https://spark.apache.org/docs/latest/sql-getting-started.html
+   - https://spark.apache.org/docs/3.5.1/sql-data-sources-jdbc.html
 9. Затем напишите код на Spark, который заполнит таблицу витрины данных из данных таблиц измерений и фактов в DWH. Напишите код инкрементальным, чтобы можно было забирать только измененные данные на источниках.
    - https://spark.apache.org/docs/latest/sql-getting-started.html
    - Обратите внимание на комментарии к колонкам в скрипте DDL витрины данных dwh.craftsman_report_datamart. Там написано, что должно содержаться в этих колонках.
