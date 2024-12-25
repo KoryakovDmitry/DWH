@@ -1,0 +1,12 @@
+FROM postgres:14-alpine
+
+# Установка дополнительных пакетов, если необходимо
+# RUN apk add --no-cache bash
+
+# Копирование скриптов и данных в контейнер
+COPY scripts /scripts
+COPY data /data
+
+# Копирование и установка прав на инициализационный скрипт
+COPY scripts/00_init_db.sh /docker-entrypoint-initdb.d/00_init_db.sh
+RUN chmod +x /docker-entrypoint-initdb.d/00_init_db.sh

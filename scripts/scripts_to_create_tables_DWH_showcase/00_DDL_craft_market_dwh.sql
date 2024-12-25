@@ -1,4 +1,5 @@
 --create schema dwh;
+CREATE SCHEMA dwh;
 
 DROP TABLE IF EXISTS dwh.d_customers;
 CREATE TABLE IF NOT EXISTS  dwh.d_customers (

@@ -4,7 +4,7 @@ CREATE SCHEMA source2;
 
 -- DROP TABLE source2.craft_market_masters_products;
 
-CREATE TABLE source2.craft_market_masters_products (
+CREATE TABLE IF NOT EXISTS source2.craft_market_masters_products (
 	craftsman_id BIGINT GENERATED ALWAYS AS IDENTITY NOT NULL, -- идентификатор мастера
 	craftsman_name VARCHAR NOT NULL, -- ФИО мастера
 	craftsman_address VARCHAR NOT NULL, -- адрес мастера
