@@ -6,17 +6,29 @@
 Вы работаете в компании, которая создает приложение маркетплейс для эксклюзивных товаров ручной работы мастеров. Мастера, которые изготавливают свои товары вручную выкладывают их на продажу на различных сайтах, у каждого из которых свой бэкенд со своей моделью данных в БД. Ваша компания покупает эти сайты, но не меняет у них домены, а значит, мастера всё ещё могут туда выкладывать свои товары, а покупатели делать там покупки. Нужно организовать корпоративное хранилище данных (DWH) на основе данных из трех источников и построить конечную витрину данных со статистикой о продажах.
 
 Алгоритм решения задания:
-1. Установить себе Docker Desktop - https://www.docker.com/products/docker-desktop/ 
+1. Установить себе Docker Desktop - https://www.docker.com/products/docker-desktop/
+
+**_Комментарий:_ Вместо `Docker Desktop` я использую `colima` для Mac OS**
+
 2. Установить себе DBeaver Community - https://dbeaver.io/
+
+**_Комментарий:_ Вместо `DBeaver Community` я использую Pgadmin (см. `docker-compose.yml`)**
+
 3. Запустить в docker СУБД PostgrSQL
    - https://habr.com/ru/articles/823816/
    - https://habr.com/ru/articles/578744/
    - https://www.docker.com/blog/how-to-use-the-postgres-docker-official-image/
    - https://geshan.com.np/blog/2021/12/docker-postgres/
    - https://hub.docker.com/_/postgres
+
+**_Комментарий:_ см. `docker-compose.yml`**
+
 4. Запустить DBeaver и с помощью скриптов из папки "Cкрипты создания таблиц источников" - создать пустые таблицы источников в PostgreSQL
 5. С помощью DBeaver импортировать данные из csv файлов в папке "Данные для источников" в пустые таблицы, созданные на предыдущем шаге
 6. С помощью DBeaver запустить скрипты из папки "Скрипты по созданию таблиц DWH и витрин". Скрипты создадут таблицы фактов, измерений и таблицы для витрины данных.
+
+**_Комментарий:_ Вместо ручной загрузки в базу данных, я создал `bash` скрипт, который всё инициализирует `scripts/00_init_db.sh`**
+
 7. Запустите Spark в Docker, чтобы он имел доступ к PostgreSQL в docker (нужно настроить сетевую связанность между ними)
    - https://hub.docker.com/r/jupyter/all-spark-notebook
    - https://stackoverflow.com/questions/37694987/connecting-to-postgresql-in-a-docker-container-from-outside
@@ -38,3 +50,10 @@
 2. PostgreSQL и Spark должны запускаться в Docker.
 3. В Readme репозитория должна быть инструкция, как запускать скрипты для проверки.
 4. Должна быть реализована инкрементальная загрузка
+
+
+# Инструкции по запуску
+
+```bash
+docker-compose --env-file .env.example up -d --build 
+```

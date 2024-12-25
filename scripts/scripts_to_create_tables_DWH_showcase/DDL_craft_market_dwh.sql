@@ -1,7 +1,7 @@
 --create schema dwh;
 
 DROP TABLE IF EXISTS dwh.d_customers;
-CREATE TABLE dwh.d_customers (
+CREATE TABLE IF NOT EXISTS  dwh.d_customers (
 	customer_id BIGINT GENERATED ALWAYS AS IDENTITY NOT NULL,
 	customer_name VARCHAR NULL,
 	customer_address VARCHAR NULL,
@@ -20,7 +20,7 @@ COMMENT ON COLUMN dwh.d_customers.load_dttm IS 'дата и время загр�
 
 
 DROP TABLE IF EXISTS dwh.d_products;
-CREATE TABLE dwh.d_products (
+CREATE TABLE IF NOT EXISTS dwh.d_products (
 	product_id BIGINT GENERATED ALWAYS AS IDENTITY NOT NULL,
 	product_name VARCHAR NOT NULL,
 	product_description VARCHAR NOT NULL,
@@ -39,7 +39,7 @@ COMMENT ON COLUMN dwh.d_products.load_dttm IS 'дата и время загру
 
 
 DROP TABLE IF EXISTS dwh.d_craftsmans;
-CREATE TABLE dwh.d_craftsmans (
+CREATE TABLE IF NOT EXISTS dwh.d_craftsmans (
 	craftsman_id BIGINT GENERATED ALWAYS AS IDENTITY NOT NULL,
 	craftsman_name VARCHAR NOT NULL,
 	craftsman_address VARCHAR NOT NULL,
@@ -58,7 +58,7 @@ COMMENT ON COLUMN dwh.d_craftsmans.load_dttm IS 'дата и время загр
 
 
 DROP TABLE IF EXISTS dwh.f_orders;
-CREATE TABLE dwh.f_orders (
+CREATE TABLE IF NOT EXISTS dwh.f_orders (
 	order_id BIGINT GENERATED ALWAYS AS IDENTITY NOT NULL,
 	product_id BIGINT GENERATED ALWAYS AS IDENTITY NOT NULL,
 	craftsman_id int8 NOT NULL,
