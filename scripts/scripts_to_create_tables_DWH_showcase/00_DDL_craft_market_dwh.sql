@@ -60,8 +60,10 @@ COMMENT ON COLUMN dwh.d_craftsmans.load_dttm IS 'дата и время загр
 
 DROP TABLE IF EXISTS dwh.f_orders;
 CREATE TABLE IF NOT EXISTS dwh.f_orders (
-	order_id BIGINT GENERATED ALWAYS AS IDENTITY NOT NULL,
-	product_id BIGINT GENERATED ALWAYS AS IDENTITY NOT NULL,
+-- 	order_id BIGINT GENERATED ALWAYS AS IDENTITY NOT NULL,
+-- 	product_id BIGINT GENERATED ALWAYS AS IDENTITY NOT NULL,
+	order_id BIGINT NOT NULL,
+	product_id BIGINT NOT NULL,
 	craftsman_id int8 NOT NULL,
 	customer_id int8 NOT NULL,
 	order_created_date DATE NULL,
