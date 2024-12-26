@@ -18,10 +18,10 @@
 4-5-6. Вместо ручной загрузки в базу данных, я создал `bash` скрипт, который всё инициализирует `scripts/00_init_db.sh`. 
    Обновил изначальные скрипты. Добавил `CREATE SCHEMA dwh;`, которого не было. И дополнительные минорные апдейты.
 
-7. Запустите Spark в Docker, чтобы он имел доступ к PostgreSQL в docker (нужно настроить сетевую связанность между ними)
+7. - [x] Запустите Spark в Docker, чтобы он имел доступ к PostgreSQL в docker (нужно настроить сетевую связанность между ними)
    - https://hub.docker.com/r/jupyter/all-spark-notebook
    - https://stackoverflow.com/questions/37694987/connecting-to-postgresql-in-a-docker-container-from-outside
-8. Напишите код на Spark, который будет заполнять сначала таблицы измерений и фактов в DWH.
+8. - [x] Напишите код на Spark, который будет заполнять сначала таблицы измерений и фактов в DWH.
    - https://spark.apache.org/docs/latest/sql-getting-started.html
    - https://spark.apache.org/docs/3.5.1/sql-data-sources-jdbc.html
 9. Затем напишите код на Spark, который заполнит таблицу витрины данных из данных таблиц измерений и фактов в DWH. Напишите код инкрементальным, чтобы можно было забирать только измененные данные на источниках.
@@ -44,4 +44,4 @@
 1. docker-compose --env-file .env.example up -d --build 
 2. Goto http://localhost:8897/lab
 3. Set token, check logs from `docker-compose logs -f jupyter`. You can found token, for example, `lab?token=7ce9baaba2d1b808a2beed30030084ea7c1111e2ce010dcf`
-4. 
+4. Run Jupyter cells
