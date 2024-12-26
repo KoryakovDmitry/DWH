@@ -42,3 +42,6 @@
 ```bash
 docker-compose --env-file .env.example up -d --build 
 ```
+
+1. Goto http://localhost:8897/lab
+2. Set token, check logs from `docker-compose logs -f jupyter`
