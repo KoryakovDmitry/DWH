@@ -39,9 +39,9 @@
 
 # Инструкции по запуску
 
-```bash
-docker-compose --env-file .env.example up -d --build 
-```
+0. If you need to do everything from scratch then down the volumes: `docker-compose down -v`
 
-1. Goto http://localhost:8897/lab
-2. Set token, check logs from `docker-compose logs -f jupyter`
+1. docker-compose --env-file .env.example up -d --build 
+2. Goto http://localhost:8897/lab
+3. Set token, check logs from `docker-compose logs -f jupyter`. You can found token, for example, `lab?token=7ce9baaba2d1b808a2beed30030084ea7c1111e2ce010dcf`
+4. 
